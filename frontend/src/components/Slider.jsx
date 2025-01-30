@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { ChevronLeftIcon, ChevronRightIcon } from '@heroicons/react/24/outline';
 
+
 const ImageSlider = () => {
   const LargeSlides = [
     {
@@ -30,19 +31,18 @@ const ImageSlider = () => {
   const [currentImage, setCurrentImage] = useState(0);
   const [images, setImages] = useState(LargeSlides);
 
-  // Detect screen size and set the correct image array
+
   useEffect(() => {
     const updateImages = () => {
       setImages(window.innerWidth < 768 ? SmallSlider : LargeSlides);
     };
 
-    updateImages(); // Call initially
+    updateImages(); 
     window.addEventListener("resize", updateImages);
 
     return () => window.removeEventListener("resize", updateImages);
   }, []);
 
-  // Auto-slide every 3 seconds
   useEffect(() => {
     const interval = setInterval(() => {
       setCurrentImage((prev) => (prev + 1) % images.length);
@@ -74,21 +74,23 @@ const ImageSlider = () => {
         />
       </AnimatePresence>
 
-      {/* Left arrow button */}
-      <button
-        onClick={goToPrevious}
-        className="absolute top-1/2 left-4 transform -translate-y-1/2 bg-gray-800 bg-opacity-50 text-white p-4 rounded-full"
-      >
-        <ChevronLeftIcon className="w-6 h-6" />
-      </button>
+   
 
-      {/* Right arrow button */}
-      <button
-        onClick={goToNext}
-        className="absolute top-1/2 right-4 transform -translate-y-1/2 bg-gray-800 bg-opacity-50 text-white p-4 rounded-full"
-      >
-        <ChevronRightIcon className="w-6 h-6" />
-      </button>
+<button
+  onClick={goToPrevious}
+  className="absolute top-1/2 left-4 transform -translate-y-1/2 bg-gray-800 bg-opacity-50 h-[40px] w-[40px] flex items-center justify-center text-white rounded-lg"
+>
+  <ChevronLeftIcon className="w-5 h-5" />
+</button>
+
+
+<button
+  onClick={goToNext}
+  className="absolute top-1/2 right-4 transform -translate-y-1/2 bg-gray-800 bg-opacity-50 h-[40px] w-[40px] flex items-center justify-center text-white rounded-lg"
+>
+  <ChevronRightIcon className="w-5 h-5" />
+</button>
+
     </div>
   );
 };

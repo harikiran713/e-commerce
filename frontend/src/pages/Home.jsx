@@ -1,3 +1,4 @@
+import NewArrivals from "../components/NewArrivals";
 import ImageSlider from "../components/Slider";
 
 const Home = () => {
@@ -5,6 +6,7 @@ const Home = () => {
         <div>
             
             <ImageSlider/>
+            <NewArrivals/>
             
         </div>
     );

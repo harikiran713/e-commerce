@@ -13,8 +13,8 @@ const Navbar = () => {
 
     return (
         <div className="flex items-center justify-between py-5 font-medium">
+            <Link to='/'> <img src={assets.logo} alt="" className="w-36 h-14" /></Link>
             
-            <a href="/"><img src={assets.logo} alt="" className="w-36 h-14" /></a>
             
             {/* gap mean betwenn childs */}
         
@@ -74,7 +74,7 @@ const Navbar = () => {
       animate={{ opacity: 1, y: 0 }}
       exit={{ opacity: 1, y: -100 }}
       transition={{ duration: 0.5 }}
-      className="absolute top-20 -left-5 pr-2 w-full h-[180px] z-20"
+      className="absolute top-[60px] -left-5 pr-2 w-full h-[180px] z-20"
     >
       <div className="text-xl font-semibold uppercase bg-yellow-500 text-white m-6 rounded-3xl p-6 w-full h-full">
         <div className="flex flex-col justify-center items-center gap-5">

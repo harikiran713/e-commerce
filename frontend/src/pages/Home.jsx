@@ -1,3 +1,4 @@
+import BestSeller from "../components/BestSeller";
 import NewArrivals from "../components/NewArrivals";
 import ImageSlider from "../components/Slider";
 
@@ -7,6 +8,7 @@ const Home = () => {
             
             <ImageSlider/>
             <NewArrivals/>
+            <BestSeller/>
             
         </div>
     );

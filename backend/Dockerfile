@@ -1,14 +1,7 @@
-FROM ubuntu
-RUN apt-get update
-RUN apt install -y curl
-RUN curl -sL https://deb.nodesource.com/setup_20.x -o /tmp/nodesource_setup.sh
-
-RUN  bash /tmp/nodesource_setup.sh
-RUN  apt install -y nodejs
-COPY index.js /home/app/index.js
-COPY package-lock.json /home/app/package-lock.json
-COPY package.json /home/app/package.json
-WORKDIR /home/app/
+FROM node:20.17.0-alpine3.19
+WORKDIR /home/app
+COPY package-lock.json package-lock.json
+COPY package.json package.json
 RUN npm install
-
-
+COPY index.js index.js
+CMD ["node","index.js"]
